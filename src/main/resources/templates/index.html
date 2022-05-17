@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Port schedule</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="css/style.css">
+  <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<p><strong>Please <a th:href="@{/schedule}" href="schedule.html">logg in</a> to see more options</strong></p>
+<p style="text-align:center"><strong>VESSELS SCHEDULE OF PORT SABETTA:</strong></p>
+
+<table class="schedule" th:width="1350" th:border="black" th:align="center">
+  <thead>
+  <tr>
+    <th>VESSEL NAME</th>
+    <th>CARGO</th>
+    <th>ETA</th>
+    <th>ETB</th>
+    <th>ETD</th>
+  </tr>
+  </thead>
+  <tbody th:align="center">
+  <tr th:each="portcall: ${schedule.data}">
+    <td th:text="${portcall.vesselName}">vesselName</td>
+    <td th:text="${portcall.cargo}">cargo</td>
+    <td th:text="${portcall.eta}">eta</td>
+    <td th:text="${portcall.etb}">etb</td>
+    <td th:text="${portcall.etd}">etd</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

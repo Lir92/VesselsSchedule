@@ -1,0 +1,36 @@
+server:
+  port: 8086
+
+spring:
+  main:
+    allow-circular-references: true # for starting spring shell
+
+  application:
+    name: vessels-schedule
+
+  messages:
+    basename: messages
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/db
+    username: user
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: db
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  liquibase:
+    change-log: classpath:db/migrations/changeLog.xml
+
+application:
+  locale: ru

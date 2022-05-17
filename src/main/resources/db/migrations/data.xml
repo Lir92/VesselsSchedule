@@ -1,0 +1,79 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Kirill Block" id="Populate-table-VESSELS-and-VesselsSchedule">
+        <insert tableName="VESSELS">
+            <!-- Id is auto incremented -->
+            <column name="NAME_EN" value="VLADIMIR VORONIN" />
+            <column name="NAME_RU" value="ВЛАДИМИР ВОРОНИН" />
+            <column name="FLAG_EN" value="Bahamas" />
+            <column name="FLAG_RU" value="Багамские острова" />
+        </insert>
+        <insert tableName="VESSELS">
+            <column name="NAME_EN" value="FEDOR LITKE" />
+            <column name="NAME_RU" value="ФЁДОР ЛИТКЕ" />
+            <column name="FLAG_EN" value="Cyprus" />
+            <column name="FLAG_RU" value="Кипр" />
+        </insert>
+        <insert tableName="VESSELS">
+            <column name="NAME_EN" value="NIKOLAY YEVGENOV" />
+            <column name="NAME_RU" value="НИКОЛАЙ ЕВГЕНОВ" />
+            <column name="FLAG_EN" value="Bahamas" />
+            <column name="FLAG_RU" value="Багамские острова" />
+        </insert>
+        <insert tableName="VESSELS">
+            <column name="NAME_EN" value="CHRISTOPHE DE MARGERIE" />
+            <column name="NAME_RU" value="КРИСТОФ ДЕ МАРЖЕРИ" />
+            <column name="FLAG_EN" value="Cyprus" />
+            <column name="FLAG_RU" value="Кипр" />
+        </insert>
+
+        <insert tableName="VesselsSchedule">
+            <column name="JOB_NUMBER" value="222135" />
+            <column name="VESSEL_NAME" value="VLADIMIR VORONIN" />
+            <column name="CARGO" value="LNG" />
+            <column name="ETA" value="15/05/22 17:30" />
+            <column name="ETB" value="17/05/22 00:01" />
+            <column name="ETC" value="17/05/22 17:00" />
+            <column name="ETD" value="17/05/22 23:59" />
+            <column name="VESSEL_STATUS" value="IN PORT" />
+        </insert>
+
+        <insert tableName="VesselsSchedule">
+            <column name="JOB_NUMBER" value="222136" />
+            <column name="VESSEL_NAME" value="FEDOR LITKE" />
+            <column name="CARGO" value="LNG" />
+            <column name="ETA" value="20/05/22 04:30" />
+            <column name="ETB" value="20/05/22 10:00" />
+            <column name="ETC" value="21/05/22 05:00" />
+            <column name="ETD" value="21/05/22 12:00" />
+            <column name="VESSEL_STATUS" value="ON ARRIVAL" />
+        </insert>
+
+        <insert tableName="VesselsSchedule">
+            <column name="JOB_NUMBER" value="222137" />
+            <column name="VESSEL_NAME" value="NIKOLAY YEVGENOV" />
+            <column name="CARGO" value="LNG" />
+            <column name="ETA" value="19/05/22 16:30" />
+            <column name="ETB" value="20/05/22 00:01" />
+            <column name="ETC" value="20/05/22 12:00" />
+            <column name="ETD" value="20/05/22 17:00" />
+            <column name="VESSEL_STATUS" value="ON ARRIVAL" />
+        </insert>
+
+        <insert tableName="VesselsSchedule">
+            <column name="JOB_NUMBER" value="222138" />
+            <column name="VESSEL_NAME" value="CHRISTOPHE DE MARGERIE" />
+            <column name="CARGO" value="LNG" />
+            <column name="ETA" value="15/05/22 17:30" />
+            <column name="ETB" value="16/05/22 00:01" />
+            <column name="ETC" value="18/05/22 16:00" />
+            <column name="ETD" value="18/05/22 23:00" />
+            <column name="VESSEL_STATUS" value="BERTHED" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

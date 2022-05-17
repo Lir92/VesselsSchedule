@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add/Edit/View</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css"/>
+  <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/static/js/select.js"></script>
+</head>
+<body>
+
+<form id="add-form" th:action="@{/portcall/save}" th:if="${portcall == null}" method="post" action="portcall.html">
+  <p><strong>ADD NEW VESSEL CALL:</strong></p>
+
+  <div class="row">
+    <label for="jobNumber-input">JOB NUMBER:</label>
+    <input id="jobNumber-input" name="jobNumber" type="text" required="required" maxlength="255"/>
+  </div>
+
+  <div class="row">
+    <label for="vesselName-input">VESSEL NAME:</label>
+    <input id="vesselName-input" name="vesselName" type="text" required="required" maxlength="100" />
+  </div>
+
+  <div class="row">
+    <label for="cargo-input">CARGO:</label>
+    <input id="cargo-input" name="cargo" type=text required="required" maxlength="255" />
+  </div>
+
+  <div class="row">
+    <label for="eta-input">ETA:</label>
+    <input id="eta-input" name="eta" type=text required="required" maxlength="50" />
+  </div>
+
+  <div class="row">
+    <label for="etb-input">ETB:</label>
+    <input id="etb-input" name="etb" type=text required="required" maxlength="50" />
+  </div>
+
+  <div class="row">
+    <label for="etc-input">ETC:</label>
+    <input id="etc-input" name="etc" type=text required="required" maxlength="50" />
+  </div>
+
+  <div class="row">
+    <label for="etd-input">ETD:</label>
+    <input id="etd-input" name="etd" type=text required="required" maxlength="50" />
+  </div>
+
+<!--  <div class="row">-->
+<!--    <label for="status-input">STATUS:</label>-->
+<!--    <input id="status-input" type="text">-->
+<!--    <select name="select" id="select" onchange="document.getElementById('status-input').value=this.value">-->
+<!--      <option value="ON ARRIVAL">ON ARRIVAL</option>-->
+<!--      <option value="IN PORT">IN PORT</option>-->
+<!--      <option value="BERTHED">BERTHED</option>-->
+<!--      <option value="SAILED">SAILED</option>-->
+<!--    </select>-->
+<!--  </div>-->
+
+  <div class="row">
+    <label for="status-input">STATUS:</label>
+    <input id="status-input" name="status" type=text required="required" maxlength="15" />
+  </div>
+
+  <div class="row">
+    <a th:href="@{/schedule}" href="schedule.html"><img alt="Back" th:src="@{/images/back.png}"/></a>
+    <button id="save" type="submit">Save</button>
+  </div>
+</form>
+
+<form id="edit-form" th:action="@{/portCall/save(id=${portcall.id})}" th:unless="${portcall == null}" method="post"
+      action="portcall.html" th:object="${portcall}">
+  <p><strong>PORT CALL INFO:</strong></p>
+
+  <div class="row">
+    <label for="jobNumber-input">JOB NUMBER:</label>
+    <input id="jobNumber-input" name="jobNumber" type="text" th:value="*{jobNumber}" required="required" maxlength="255" value="JOB NUMBER"/>
+  </div>
+
+  <div class="row">
+    <label for="vesselName-input">VESSEL NAME:</label>
+    <input id="vesselName-input" name="vesselName" type="text" th:value="*{vesselName}" required="required" maxlength="255" value="VESSEL NAME"/>
+  </div>
+
+  <div class="row">
+    <label for="cargo-input">City code:</label>
+    <input id="cargo-input" name="cargo" type=text th:value="*{cargo}" required="required" maxlength="100" value="CARGO"/>
+  </div>
+
+  <div class="row">
+    <label for="eta-input">ETA:</label>
+    <input id="eta-input" name="eta" type=text th:value="*{eta}" required="required" maxlength="50" value="ETA"/>
+  </div>
+
+  <div class="row">
+    <label for="etb-input">ETB:</label>
+    <input id="etb-input" name="etb" type=text th:value="*{etb}" required="required" maxlength="50" value="ETB"/>
+  </div>
+
+  <div class="row">
+    <label for="etc-input">ETC:</label>
+    <input id="etc-input" name="etc" type=text th:value="*{etc}" required="required" maxlength="50" value="ETC"/>
+  </div>
+
+  <div class="row">
+    <label for="etd-input">ETD:</label>
+    <input id="etd-input" name="etd" type=text th:value="*{etd}" required="required" maxlength="50" value="ETD"/>
+  </div>
+
+  <div class="row">
+    <label for="status-input">STATUS:</label>
+    <input id="status-input" name="status" type=text th:value="*{status}" required="required" maxlength="50" value="STATUS"/>
+  </div>
+
+  <div class="row">
+    <a th:href="@{/schedule}" href="schedule.html"><img alt="Back" th:src="@{/images/back.png}"/></a>
+    <button type="submit"><img alt="Save" th:src="@{/images/save.png}"/></button>
+  </div>
+</form>
+</body>
+</html>

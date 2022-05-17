@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Port schedule</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="css/style.css">
+    <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.delete').click(function () {
+                if (confirm('Are you sure to delete this vessel call?')) {
+                    let id = $(this).attr('class').replace('delete', '');
+                    $.ajax({
+                        url: '/delete/' + id.trim(),
+                        type: 'DELETE',
+                        success: function () {
+                            location.href = '/schedule';
+                        },
+                        error: function () {
+                            alert('Error happened');
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+
+<p style="text-align:center"><strong>VESSELS SCHEDULE OF PORT SABETTA:</strong></p>
+
+<div id="navigation">
+    <a th:if="${schedule.hasPrevious}" th:href="@{/cities(page=${schedule.currentPage - 1})}" href="schedule.html">
+        <img alt="Previous page" th:src="@{/images/previous.png}"/></a>
+    Current page <span th:text="${schedule.currentPage + 1}">0</span> of <span th:text="${schedule.totalPage}">2</span>
+    <a th:if="${schedule.hasNext}" th:href="@{/schedule(page=${schedule.currentPage + 1})}" href="schedule.html">
+        <img alt="Next page" th:src="@{/images/next.png}"/></a>
+</div>
+<table class="schedule" th:width="1350" th:border="black" th:align="center">
+    <thead>
+    <tr>
+        <th>JOB NUMBER</th>-->
+        <th>VESSEL NAME</th>
+        <th>CARGO</th>
+        <th>ETA</th>
+        <th>ETB</th>
+        <th>ETC</th>
+        <th>ETD</th>
+        <th>STATUS</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    </thead>
+    <tbody th:align="center">
+    <tr th:each="portcall: ${schedule.data}">
+        <td th:text="${portcall.jobNumber}">jobNumber</td>
+        <td th:text="${portcall.vesselName}">vesselName</td>
+        <td th:text="${portcall.cargo}">cargo</td>
+        <td th:text="${portcall.eta}">eta</td>
+        <td th:text="${portcall.etb}">etb</td>
+        <td th:text="${portcall.etc}">etc</td>
+        <td th:text="${portcall.etd}">etd</td>
+        <td th:text="${portcall.status}">status</td>
+        <td>
+            <a th:href="@{/portcall/edit(id=${portcall.id})}" href="portcall.html">
+                <img alt="Edit" th:src="@{/images/edit.png}"/></a>
+        </td>
+        <td>
+            <button class="delete" th:classappend="${portcall.id}">
+                <img alt="Delete" th:src="@{/images/delete.png}"/></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="toolbar">
+    <a th:href="@{/}" href="../index.html"><img alt="Back" th:src="@{/images/back.png}"/></a>
+    <a th:href="@{/portcall/add}" href="portcall.html"><img alt="Add" th:src="@{/images/add.png}"/></a>
+</div>
+</body>
+</html>
