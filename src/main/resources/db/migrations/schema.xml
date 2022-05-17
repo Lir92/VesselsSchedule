@@ -5,8 +5,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="Kirill Block" id="Create-table-vesselsSchedule">
-        <preConditions> <!-- в preCondition либо проверяется наличие определённой таблицы, либо указывается создание таблицы
-         или иной логики. Т.е. ниже идёт провека: "есть ли уже таблица GENRE? Если нет, то она создаётся, иначе - ничего. -->
+        <preConditions>
             <not>
                 <tableExists tableName="VesselsSchedule"/>
             </not>
@@ -19,8 +18,7 @@
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="VESSEL_NAME" type="VARCHAR(255)">
-               <constraints nullable="false"/> <!-- foreignKeyName="FK_VesselsSchedule_VESSELS"-->
-<!--                            references="VESSELS(NAME)"/>-->
+               <constraints nullable="false"/>
             </column>
             <column name="CARGO" type="VARCHAR(100)">
                 <constraints nullable="false"/>
@@ -65,10 +63,6 @@
             <column name="FLAG_RU" type="VARCHAR(150)">
                 <constraints nullable="false"/>
             </column>
-<!--            <column name="OWNER_NAME" type="VARCHAR(150)">-->
-<!--                <constraints nullable="false" foreignKeyName="FK_VESSELS_OWNERS"-->
-<!--                             references="OWNER(ID)"/>-->
-<!--            </column>-->
         </createTable>
     </changeSet>
 

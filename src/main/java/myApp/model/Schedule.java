@@ -47,7 +47,7 @@ public class Schedule {
     @Column(name = "ETD", nullable = false)
     private String etd;
 
-//    @NotEmpty
+    @NotEmpty
     @Column(name = "VESSEL_STATUS", nullable = false)
     private String status;
 }

@@ -38,18 +38,18 @@
 </div>
 <table class="schedule" th:width="1350" th:border="black" th:align="center">
     <thead>
-    <tr>
-        <th>JOB NUMBER</th>-->
-        <th>VESSEL NAME</th>
-        <th>CARGO</th>
-        <th>ETA</th>
-        <th>ETB</th>
-        <th>ETC</th>
-        <th>ETD</th>
-        <th>STATUS</th>
-        <th>EDIT</th>
-        <th>DELETE</th>
-    </tr>
+        <tr>
+            <th>JOB NUMBER</th>
+            <th>VESSEL NAME</th>
+            <th>CARGO</th>
+            <th>ETA</th>
+            <th>ETB</th>
+            <th>ETC</th>
+            <th>ETD</th>
+            <th>STATUS</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
     </thead>
     <tbody th:align="center">
     <tr th:each="portcall: ${schedule.data}">
