@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <title>Port schedule</title>
@@ -27,7 +28,12 @@
     </script>
 </head>
 <body>
-
+<div class="loginPanel" sec:authorize="isAuthenticated()">
+    <span class="loginName" sec:authentication="name"></span>
+    <div style="right: auto" class="logoutButton">
+        <a th:href="@{/logout}"><img title="Logout" th:src="@{/images/exit.png}"/></a>
+    </div>
+</div>
 <p style="text-align:center"><strong>VESSELS SCHEDULE OF PORT SABETTA:</strong></p>
 
 <div id="navigation">

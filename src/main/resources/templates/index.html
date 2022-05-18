@@ -5,7 +5,7 @@
   <title>Port schedule</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" href="css/style.css">
   <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
-
+  <script src="/js/select.js"></script>
 </head>
 <body>
 <p><strong>Please <a th:href="@{/schedule}" href="schedule.html">logg in</a> to see more options</strong></p>
@@ -19,6 +19,7 @@
     <th>ETA</th>
     <th>ETB</th>
     <th>ETD</th>
+    <th>STATUS</th>
   </tr>
   </thead>
   <tbody th:align="center">
@@ -28,6 +29,7 @@
     <td th:text="${portcall.eta}">eta</td>
     <td th:text="${portcall.etb}">etb</td>
     <td th:text="${portcall.etd}">etd</td>
+    <td th:text="${portcall.status}">status</td>
   </tr>
   </tbody>
 </table>
