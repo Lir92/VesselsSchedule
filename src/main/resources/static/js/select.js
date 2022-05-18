@@ -1,14 +1,21 @@
-// $(function(){
-//     let input = $('#status-input'),
-//         inpVal = input.val();
-//
-//     $('.selectstatus').on('change', function(){
-//         input.val(inpVal + $(this).val());
-//     });
-// });
+document.addEventListener('DOMContentLoaded', () => {
 
-$(document).ready(function(){
-    $(".select").change(function(){
-        $('.status-input').val($('.select').val());
-    });
+    const getSort = ({ target }) => {
+        const order = (target.dataset.order = -(target.dataset.order || -1));
+        const index = [...target.parentNode.cells].indexOf(target);
+        const collator = new Intl.Collator(['en', 'ru'], { numeric: true });
+        const comparator = (index, order) => (a, b) => order * collator.compare(
+            a.children[index].innerHTML,
+            b.children[index].innerHTML
+        );
+
+        for(const tBody of target.closest('table').tBodies)
+            tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+
+        for(const cell of target.parentNode.cells)
+            cell.classList.toggle('sorted', cell === target);
+    };
+
+    document.querySelectorAll('.schedule thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
+
 });

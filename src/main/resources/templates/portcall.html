@@ -5,7 +5,7 @@
   <title>Add/Edit/View</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css"/>
   <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/static/js/select.js"></script>
+<!--  <script src="/static/js/select.js"></script>-->
 </head>
 <body>
 
@@ -47,20 +47,14 @@
     <input id="etd-input" name="etd" type=text required="required" maxlength="50" />
   </div>
 
-<!--  <div class="row">-->
-<!--    <label for="status-input">STATUS:</label>-->
-<!--    <input id="status-input" type="text">-->
-<!--    <select name="select" id="select" onchange="document.getElementById('status-input').value=this.value">-->
-<!--      <option value="ON ARRIVAL">ON ARRIVAL</option>-->
-<!--      <option value="IN PORT">IN PORT</option>-->
-<!--      <option value="BERTHED">BERTHED</option>-->
-<!--      <option value="SAILED">SAILED</option>-->
-<!--    </select>-->
-<!--  </div>-->
-
   <div class="row">
-    <label for="status-input">STATUS:</label>
-    <input id="status-input" name="status" type=text required="required" maxlength="15" />
+    <label for="select-status">STATUS:</label>
+    <select name="status" id="select-status" onchange="document.getElementById('status-input').value=this.value">
+      <option value="ON ARRIVAL" type="text">ON ARRIVAL</option>
+      <option value="IN PORT" type="text">IN PORT</option>
+      <option value="BERTHED" type="text">BERTHED</option>
+      <option value="SAILED" type="text">SAILED</option>
+    </select>
   </div>
 
   <div class="row">
@@ -109,8 +103,13 @@
   </div>
 
   <div class="row">
-    <label for="status-input">STATUS:</label>
-    <input id="status-input" name="status" type=text th:value="*{status}" required="required" maxlength="50" value="STATUS"/>
+    <label for="select-status">STATUS:</label>
+    <select name="status" id="select-status" th:value="*{status}" onchange="document.getElementById('status-input').value=this.value">
+      <option value="ON ARRIVAL" type="text">ON ARRIVAL</option>
+      <option value="IN PORT" type="text">IN PORT</option>
+      <option value="BERTHED" type="text">BERTHED</option>
+      <option value="SAILED" type="text">SAILED</option>
+    </select>
   </div>
 
   <div class="row">
