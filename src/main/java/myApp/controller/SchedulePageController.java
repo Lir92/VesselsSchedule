@@ -4,16 +4,12 @@ import lombok.RequiredArgsConstructor;
 import myApp.dto.ScheduleDto;
 import myApp.dto.SchedulePageDto;
 import myApp.service.ScheduleService;
-import myApp.validator.PositiveOrZero;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.constraints.Positive;
 
 @Controller
 @Validated
@@ -22,11 +18,18 @@ public class SchedulePageController {
 
     private final ScheduleService scheduleService;
 
+//    @GetMapping("/schedule")
+//    public String index(Model model,
+//                        @PositiveOrZero(originValue = 20) @RequestParam(required = false,defaultValue = "0") Integer page,
+//                        @Positive @RequestParam(required = false, defaultValue = "15") Integer size) {
+//        SchedulePageDto fullSchedule = scheduleService.getPage(PageRequest.of(page,size));
+//        model.addAttribute("schedule", fullSchedule);
+//        return "/schedule";
+//    }
+
     @GetMapping("/schedule")
-    public String index(Model model,
-                        @PositiveOrZero(originValue = 20) @RequestParam(required = false,defaultValue = "0") Integer page,
-                        @Positive @RequestParam(required = false, defaultValue = "15") Integer size) {
-        SchedulePageDto fullSchedule = scheduleService.getPage(PageRequest.of(page,size));
+    public String index(Model model) {
+        SchedulePageDto fullSchedule = scheduleService.findVessels();
         model.addAttribute("schedule", fullSchedule);
         return "/schedule";
     }

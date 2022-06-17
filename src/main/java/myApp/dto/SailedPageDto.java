@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class SchedulePageDto {
+public class SailedPageDto {
 
     private List<ScheduleDto> data;
 //    private int currentPage;

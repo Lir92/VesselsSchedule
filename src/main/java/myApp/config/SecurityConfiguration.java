@@ -32,7 +32,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                     .authorizeRequests()
                     .antMatchers("/").permitAll()
                     .and()
-                    .authorizeRequests().antMatchers("/schedule", "/portcall/**").authenticated()
+                    .authorizeRequests().antMatchers("/schedule", "/portcall/**", "/sailed").authenticated()
                     .and()
                     .formLogin();
         }
