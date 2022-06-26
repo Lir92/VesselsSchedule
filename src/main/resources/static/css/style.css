@@ -1,40 +1,65 @@
-.table_sort table {
-    border-collapse: collapse;
+body {
+    color: aliceblue;
+    font: 12px Tahoma, sans-serif; /* шрифт */
+    background-color: #f3f3f3;
+    margin: 0;
+}
+input[type="text"] {
+    background-color: #f3f3f3;
+    border: 1px solid #e7e7e7;
+    height: 30px;
+    color: #b2b2b2;
+    padding: 0 10px;
+    vertical-align: top;
+}
+button {
+    color: #fff;
+    background-color: #29c5e6;
+    border: none;
+    height: 32px;
+    font-family: 'Oswald', sans-serif;
+}
+p {
+    margin: 0 0 0 200px;
+    font-size: 20px;
+    font-style: normal;
+    color: dimgray;
 }
 
-.table_sort th {
-    color: #ffebcd;
-    background: #008b8b;
-    cursor: pointer;
+#wrapper {
+    max-width: 1500px;
+    margin: auto;
+}
+header {
+    padding: 5px 0;
 }
 
-.table_sort td,
-.table_sort th {
-    width: 150px;
-    height: 40px;
-    text-align: center;
-    border: 2px solid #846868;
+form[name="search"] { /*стиль для поисковика*/
+    padding: 10px;
+    float: right;
 }
-
-.table_sort tbody tr:nth-child(even) {
-    background: #e3e3e3;
+/* блок стилей навигационного меню */
+nav a {
+    text-decoration: none;
 }
-
-th.sorted[data-order="1"],
-th.sorted[data-order="-1"] {
-    position: relative;
+nav ul {
+    margin: 1px;
+    padding: 0;
 }
-
-th.sorted[data-order="1"]::after,
-th.sorted[data-order="-1"]::after {
-    right: 8px;
-    position: absolute;
+nav li {
+    list-style-position: inside;
+    font-size: 14px;
+    padding: 10px;
 }
-
-th.sorted[data-order="-1"]::after {
-    content: "▼"
+.top-menu li {
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 0;
 }
-
-th.sorted[data-order="1"]::after {
-    content: "▲"
+.top-menu li.active {
+    background: #29c5e6;
+    color: #fff;
+}
+.top-menu a {
+    color: #b2b2b2;
 }

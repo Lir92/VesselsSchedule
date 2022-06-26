@@ -3,16 +3,23 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Port schedule</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}" href="css/style.css">
+  <link rel="stylesheet" th:href="@{/css/sort.css}" href="css/sort.css">
+<!--  <link rel="stylesheet" th:href="@{/css/style.css}" href="static/css/style.css" type="text/css">-->
   <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
   <script src="/js/order.js"></script>
 </head>
-<body>
-<p><strong>Please <a th:href="@{/schedule}" href="schedule.html">logg in</a> to see more options</strong></p>
+<body style="background: lightblue">
+<nav>
+  <ul class="top-menu">
+    <li><a th:href="@{/}" href="index.html">Schedule</a></li>
+    <li><a th:href="@{/sailed}" href="sailed.html">Sailed vessels</a> </li>
+  </ul>
+</nav>
+<p><strong><a th:href="@{/schedule}" href="schedule.html">Logg in</a> to see more options</strong></p>
 <p style="text-align:center"><strong>VESSELS SCHEDULE OF PORT SABETTA:</strong></p>
 
-<table class="schedule" th:width="1350" th:border="black" th:align="center">
-  <thead>
+<table style="background: white" class="schedule" th:width="1350" th:border="black" th:align="center">
+  <thead style="background: lightgray">
   <tr>
     <th>VESSEL NAME</th>
     <th>CARGO</th>

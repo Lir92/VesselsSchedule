@@ -27,8 +27,15 @@ public class SchedulePageController {
 //        return "/schedule";
 //    }
 
-    @GetMapping("/schedule")
+    @GetMapping("/")
     public String index(Model model) {
+        SchedulePageDto fullSchedule = scheduleService.findVessels();
+        model.addAttribute("schedule", fullSchedule);
+        return "/index";
+    }
+
+    @GetMapping("/schedule")
+    public String schedule(Model model) {
         SchedulePageDto fullSchedule = scheduleService.findVessels();
         model.addAttribute("schedule", fullSchedule);
         return "/schedule";

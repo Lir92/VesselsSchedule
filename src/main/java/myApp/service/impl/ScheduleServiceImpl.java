@@ -34,6 +34,12 @@ public class ScheduleServiceImpl implements ScheduleService {
         return new SchedulePageDto(mapper.toDtos(repository.findNotSailedVessels()));
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public SchedulePageDto findSailedVessels() {
+        return new SchedulePageDto(mapper.toDtos(repository.findSailedVessels()));
+    }
+
 //    @Override
 //    public SchedulePageDto getPage(Pageable pageable) {
 //        Page<Schedule> currentPage = repository.findAll(pageable);

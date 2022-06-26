@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Port schedule</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="css/style.css">
+    <link rel="stylesheet" th:href="@{/css/sort.css}" href="css/sort.css">
     <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/order.js"></script>
     <script>
@@ -27,13 +27,19 @@
         })
     </script>
 </head>
-<body>
 <div class="loginPanel" sec:authorize="isAuthenticated()">
     <span class="loginName" sec:authentication="name"></span>
     <div style="right: auto" class="logoutButton">
         <a th:href="@{/logout}"><img title="Logout" th:src="@{/images/exit.png}"/></a>
     </div>
 </div>
+<body style="background: lightblue">
+<nav>
+    <ul class="top-menu">
+        <li><a th:href="@{/schedule}" href="schedule.html">Schedule</a></li>
+        <li><a th:href="@{/sailed}" href="sailed.html">Sailed vessels</a> </li>
+    </ul>
+</nav>
 <p style="text-align:center"><strong>SAILED VESSELS:</strong></p>
 
 <!-- ниже блок кода с определением количества страниц и перелистыванием -->
@@ -44,8 +50,8 @@
 <!--    <a th:if="${sailed.hasNext}" th:href="@{/schedule(page=${sailed.currentPage + 1})}" href="schedule.html">-->
 <!--        <img alt="Next page" th:src="@{/images/next.png}"/></a>-->
 <!--</div>-->
-<table class="schedule" th:width="1350" th:border="black" th:align="center">
-    <thead>
+<table style="background: white" class="schedule" th:width="1350" th:border="black" th:align="center">
+    <thead style="background: lightgray">
     <tr>
         <th>JOB NUMBER</th>
         <th>VESSEL NAME</th>
@@ -61,6 +67,7 @@
     </thead>
     <tbody th:align="center">
     <tr th:each="portcall: ${sailed.data}">
+        <!-- добавить возможность переходить на страницу работы, как в "расписании" -->
         <td th:text="${portcall.jobNumber}">jobNumber</td>
         <td th:text="${portcall.vesselName}">vesselName</td>
         <td th:text="${portcall.cargo}">cargo</td>

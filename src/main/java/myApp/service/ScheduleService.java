@@ -10,6 +10,7 @@ public interface ScheduleService {
 
 //    List<ScheduleDto> findAll();
     SchedulePageDto findVessels();
+    SchedulePageDto findSailedVessels();
 //    SchedulePageDto getPage(Pageable pageable);
     Optional<ScheduleDto> getByID(Integer id);
     ScheduleDto save(@Valid ScheduleDto scheduleDto);
